@@ -2,7 +2,7 @@ Use the following context to generate the full frontend and backend code for a w
 
 CONTEXT:
 
-PROJECT: IA Poster Shop
+PROJECT: La fabrique à poster
 
 OBJECTIVE:
 - Create an e-commerce site to sell landscape posters in sketch style.
@@ -28,7 +28,7 @@ TECH STACK:
 - Backend/BaaS: Supabase (Auth, PostgreSQL DB, Storage, Functions)
 - Storage: Secure storage for uploaded and final images
 - Emails: SendGrid/Mailgun via Supabase Functions
-- Hosting: Cloudflare Pages for frontend
+- Hosting: Vercel recommended (Next.js), or Cloudflare Pages for frontend static parts
 - Domain: OVH, DNS via Cloudflare
 
 CONSTRAINTS:
@@ -40,7 +40,7 @@ CONSTRAINTS:
 - Focus on usability, secure image handling, and manual workflow
 
 USER FLOW:
-1. User visits site via domain (Cloudflare + OVH)
+1. User visits site via domain
 2. Chooses an image or uploads a photo
 3. Customizes poster with text, font, layout
 4. Creates account or logs in
@@ -48,6 +48,24 @@ USER FLOW:
 6. Admin manually transforms image
 7. Final image sent by email for user validation
 8. Order status updated in user account
+
+HOME PAGE FRONTEND:
+- Generate a full homepage frontend similar to https://latelier-du-poster.com
+- Structure:
+  1. Header: logo left, menu right (Accueil, Galerie, Personnaliser, Contact), responsive hamburger menu
+  2. Main banner: placeholder poster image, text 'Créez votre poster unique en quelques clics', CTA button 'Créer mon poster'
+  3. Product grid: 6 example posters, each with image, title, price, hover effect (zoom & shadow), responsive (3/2/1 columns)
+  4. Section 'Comment ça marche': 3 steps illustrated with icons/placeholders, short text
+  5. Footer: contact links, social media icons, legal info, simple design
+- Use React functional components and TailwindCSS
+- All images and icons can be placeholders (Unsplash / Heroicons)
+- Make components modular, reusable, and responsive
+- Include comments explaining each part
+- Style guidelines:
+  - Color palette: primary #BBD0CB, secondary #F9FAFB, accent #EF4444
+  - Font: Inter, sans-serif
+  - Buttons: hover scale 105%, transition duration 200ms
+  - Product hover: scale 105%, shadow-md, transition duration 200ms
 
 INSTRUCTIONS TO CURSOR:
 - Generate a Next.js project with pages/components for the frontend.
@@ -61,3 +79,4 @@ INSTRUCTIONS TO CURSOR:
 - Use Tailwind CSS for styling.
 - Provide code comments explaining each part.
 - Make the code modular and easy to extend for additional features.
+- Generate the homepage and all components following the frontend guidelines above.

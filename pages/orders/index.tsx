@@ -12,7 +12,7 @@ export default function OrdersPage() {
   return (
     <>
       <Head>
-        <title>Mes commandes - IA Poster Shop</title>
+        <title>Mes commandes - La fabrique à poster</title>
         <meta name="description" content="Consultez toutes vos commandes" />
       </Head>
 

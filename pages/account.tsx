@@ -57,7 +57,7 @@ export default function AccountPage() {
   return (
     <>
       <Head>
-        <title>Mon compte - IA Poster Shop</title>
+        <title>Mon compte - La fabrique à poster</title>
         <meta name="description" content="Gérez votre compte" />
       </Head>
 
@@ -127,7 +127,7 @@ export default function AccountPage() {
                   Si vous avez des questions ou besoin d'assistance, contactez notre support.
                 </p>
                 <a
-                  href="mailto:support@iapostershop.com"
+                  href="mailto:contact@lafabriqueaposter.fr"
                   className="text-primary-600 hover:text-primary-700 text-sm font-medium"
                 >
                   Contacter le support →

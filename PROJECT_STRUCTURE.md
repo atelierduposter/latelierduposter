@@ -1,4 +1,4 @@
-# Structure du Projet IA Poster Shop
+# Structure du Projet La fabrique à poster
 
 Ce document décrit la structure complète du projet généré.
 

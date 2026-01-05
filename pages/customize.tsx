@@ -22,6 +22,7 @@ export default function CustomizePage() {
   const [step, setStep] = useState<'customize' | 'payment' | 'review'>('customize')
   const [orderId, setOrderId] = useState<string | null>(null)
   const [user, setUser] = useState<any>(null)
+  const [selectedCity, setSelectedCity] = useState<string | null>(null)
   const router = useRouter()
   const supabase = createSupabaseClient()
 
@@ -32,7 +33,12 @@ export default function CustomizePage() {
       setUser(user)
     }
     getUser()
-  }, [supabase])
+
+    // Check for city parameter in URL
+    if (router.query.city) {
+      setSelectedCity(router.query.city as string)
+    }
+  }, [supabase, router.query])
 
   const handleCustomizationComplete = (customization: PosterCustomization) => {
     setCustomization(customization)
@@ -109,7 +115,7 @@ export default function CustomizePage() {
   return (
     <>
       <Head>
-        <title>Personnaliser votre poster - IA Poster Shop</title>
+        <title>Personnaliser votre poster - La fabrique à poster</title>
         <meta name="description" content="Créez et personnalisez votre poster" />
       </Head>
 
@@ -156,6 +162,16 @@ export default function CustomizePage() {
 
           {step === 'customize' && (
             <div className="space-y-8">
+              {selectedCity && (
+                <div className="bg-artisan-blue-light border border-artisan-blue-soft rounded-lg p-4 mb-6">
+                  <p className="text-gray-700">
+                    <span className="font-semibold">Ville sélectionnée :</span> {router.query.cityName || selectedCity}
+                  </p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Vous pouvez personnaliser ce poster avec du texte ou choisir une autre image.
+                  </p>
+                </div>
+              )}
               <div className="text-center mb-8">
                 <h1 className="text-4xl font-bold mb-4">Personnalisez votre poster</h1>
                 <p className="text-gray-600">

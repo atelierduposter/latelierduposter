@@ -1,4 +1,4 @@
-# IA Poster Shop
+# La fabrique à poster
 
 Site e-commerce pour la vente de posters paysage en style croquis. Les utilisateurs peuvent uploader leurs photos ou choisir dans une galerie, et l'image finale est transformée manuellement par l'équipe admin puis envoyée par email.
 
@@ -209,4 +209,4 @@ Les contributions sont les bienvenues ! Veuillez créer une issue ou une pull re
 
 ## Support
 
-Pour toute question, contactez : support@iapostershop.com
+Pour toute question, contactez : contact@lafabriqueaposter.fr

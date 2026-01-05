@@ -12,7 +12,7 @@ export default function SignUpPage() {
   return (
     <>
       <Head>
-        <title>Créer un compte - IA Poster Shop</title>
+        <title>Créer un compte - La fabrique à poster</title>
         <meta name="description" content="Créez votre compte pour commander vos posters" />
       </Head>
       

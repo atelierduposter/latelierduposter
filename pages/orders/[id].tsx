@@ -28,7 +28,7 @@ export default function OrderDetailPage() {
   return (
     <>
       <Head>
-        <title>Détails de la commande - IA Poster Shop</title>
+        <title>Détails de la commande - La fabrique à poster</title>
         <meta name="description" content="Détails de votre commande" />
       </Head>
 
