@@ -45,6 +45,8 @@ export interface Order {
   status: OrderStatus
   total_amount: number
   payment_intent_id?: string
+  payment_provider?: string
+  shipping_address?: any
   created_at: string
   updated_at: string
 }
