@@ -1,0 +1,63 @@
+Use the following context to generate the full frontend and backend code for a website.
+
+CONTEXT:
+
+PROJECT: IA Poster Shop
+
+OBJECTIVE:
+- Create an e-commerce site to sell landscape posters in sketch style.
+- Users can upload their photo or choose from a gallery of models.
+- The final image is manually transformed by the admin team and sent to the user via email.
+
+MAIN FEATURES:
+1. Upload image or select from gallery
+2. Add text with font selection
+3. Create user account and login
+4. Track orders with statuses:
+   - Pending transformation
+   - In progress
+   - Sent for validation
+   - Validated
+   - Printing
+   - Shipped/Delivered
+5. Receive final image by email
+6. Payment via Stripe or PayPal
+
+TECH STACK:
+- Frontend: Next.js + React
+- Backend/BaaS: Supabase (Auth, PostgreSQL DB, Storage, Functions)
+- Storage: Secure storage for uploaded and final images
+- Emails: SendGrid/Mailgun via Supabase Functions
+- Hosting: Cloudflare Pages for frontend
+- Domain: OVH, DNS via Cloudflare
+
+CONSTRAINTS:
+- Images in gallery: low-res + watermark, right-click disabled
+- Backend: secure with HTTPS
+- Emails: images sent securely for validation
+- Payment: PCI-DSS compliant
+- No automatic AI generation on the site
+- Focus on usability, secure image handling, and manual workflow
+
+USER FLOW:
+1. User visits site via domain (Cloudflare + OVH)
+2. Chooses an image or uploads a photo
+3. Customizes poster with text, font, layout
+4. Creates account or logs in
+5. Submits order and pays
+6. Admin manually transforms image
+7. Final image sent by email for user validation
+8. Order status updated in user account
+
+INSTRUCTIONS TO CURSOR:
+- Generate a Next.js project with pages/components for the frontend.
+- Integrate Supabase for authentication, database, storage, and serverless functions.
+- Include components/forms for:
+  - Image upload/selection
+  - Text customization (with font selection)
+  - Account creation and login
+  - Order tracking and status updates
+- Include placeholder functions for sending emails with final images.
+- Use Tailwind CSS for styling.
+- Provide code comments explaining each part.
+- Make the code modular and easy to extend for additional features.
