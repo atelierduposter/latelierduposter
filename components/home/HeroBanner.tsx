@@ -3,7 +3,7 @@
  * 
  * Main banner section with placeholder poster image,
  * text 'Créez votre poster unique en quelques clics',
- * and CTA button 'Créer mon poster'.
+ * and CTA button 'Créer mon poster personnalisé'.
  */
 
 import Link from 'next/link'
@@ -27,7 +27,7 @@ export default function HeroBanner() {
               href="/customize"
               className="inline-block btn btn-primary text-lg px-8 py-4 transition-transform duration-200 hover:scale-105"
             >
-              Créer mon poster
+              Créer mon poster personnalisé
             </Link>
           </div>
 
