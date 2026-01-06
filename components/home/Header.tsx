@@ -48,22 +48,22 @@ export default function Header() {
       <nav className="container-custom py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-primary">
+          <Link href="/" className="text-2xl font-bold text-primary-700">
             La fabrique à poster
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-gray-700 hover:text-primary transition-colors">
+            <Link href="/" className="text-gray-700 hover:text-primary-600 transition-colors">
               Accueil
             </Link>
-            <Link href="/gallery" className="text-gray-700 hover:text-primary transition-colors">
+            <Link href="/gallery" className="text-gray-700 hover:text-primary-600 transition-colors">
               Galerie
             </Link>
-            <Link href="/customize" className="text-gray-700 hover:text-primary transition-colors">
+            <Link href="/customize" className="text-gray-700 hover:text-primary-600 transition-colors">
               Personnaliser
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-primary transition-colors">
+            <Link href="/contact" className="text-gray-700 hover:text-primary-600 transition-colors">
               Contact
             </Link>
             
@@ -71,7 +71,7 @@ export default function Header() {
               <span className="text-gray-400">Chargement...</span>
             ) : user ? (
               <>
-                <Link href="/orders" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/orders" className="text-gray-700 hover:text-primary-600 transition-colors">
                   Mes commandes
                 </Link>
                 <button
@@ -83,7 +83,7 @@ export default function Header() {
               </>
             ) : (
               <>
-                <Link href="/auth/login" className="text-gray-700 hover:text-primary transition-colors">
+                <Link href="/auth/login" className="text-gray-700 hover:text-primary-600 transition-colors">
                   Connexion
                 </Link>
                 <Link href="/auth/signup" className="btn btn-primary">
@@ -117,28 +117,28 @@ export default function Header() {
             <div className="flex flex-col space-y-4 pt-4">
               <Link 
                 href="/" 
-                className="text-gray-700 hover:text-primary transition-colors"
+                className="text-gray-700 hover:text-primary-600 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Accueil
               </Link>
               <Link 
                 href="/gallery" 
-                className="text-gray-700 hover:text-primary transition-colors"
+                className="text-gray-700 hover:text-primary-600 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Galerie
               </Link>
               <Link 
                 href="/customize" 
-                className="text-gray-700 hover:text-primary transition-colors"
+                className="text-gray-700 hover:text-primary-600 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Personnaliser
               </Link>
               <Link 
                 href="/contact" 
-                className="text-gray-700 hover:text-primary transition-colors"
+                className="text-gray-700 hover:text-primary-600 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
@@ -148,7 +148,7 @@ export default function Header() {
                 <>
                   <Link 
                     href="/orders" 
-                    className="text-gray-700 hover:text-primary transition-colors"
+                    className="text-gray-700 hover:text-primary-600 transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Mes commandes
@@ -166,7 +166,7 @@ export default function Header() {
                 <>
                   <Link 
                     href="/auth/login" 
-                    className="text-gray-700 hover:text-primary transition-colors"
+                    className="text-gray-700 hover:text-primary-600 transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Connexion

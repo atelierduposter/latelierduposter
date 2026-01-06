@@ -42,17 +42,17 @@ export default function HowItWorks() {
   return (
     <section className="py-16 bg-secondary">
       <div className="container-custom">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary-700 mb-12">
           Comment ça marche ?
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step) => (
             <div key={step.number} className="text-center">
-              <div className="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-6">
                 {step.icon}
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-3">
+              <h3 className="text-xl font-semibold text-primary-700 mb-3">
                 {step.number}. {step.title}
               </h3>
               <p className="text-gray-600">

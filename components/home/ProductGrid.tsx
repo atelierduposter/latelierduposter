@@ -58,7 +58,7 @@ export default function ProductGrid() {
   return (
     <section className="py-16 bg-white">
       <div className="container-custom">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary-700 mb-12">
           Nos posters populaires
         </h2>
         
@@ -81,7 +81,7 @@ export default function ProductGrid() {
                 
                 {/* Product Info */}
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-2">
+                  <h3 className="text-xl font-semibold text-primary-700 mb-2">
                     {product.title}
                   </h3>
                   <p className="text-2xl font-bold text-accent">

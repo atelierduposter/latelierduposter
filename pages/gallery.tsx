@@ -23,7 +23,7 @@ export default function GalleryPage() {
         <section className="py-16 bg-secondary">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold text-primary-700 mb-4">
                 Notre galerie
               </h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">

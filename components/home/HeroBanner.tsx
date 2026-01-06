@@ -15,7 +15,7 @@ export default function HeroBanner() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
           <div className="text-center md:text-left z-10">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-700 mb-6">
               Créez votre poster unique en quelques clics
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8">
@@ -32,7 +32,7 @@ export default function HeroBanner() {
 
           {/* Image Placeholder */}
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-primary-200 to-primary-400 rounded-lg shadow-xl overflow-hidden">
+            <div className="aspect-square bg-gradient-to-br from-primary-300 to-primary-500 rounded-lg shadow-xl overflow-hidden">
               {/* Placeholder image - replace with actual poster image */}
               <div className="w-full h-full flex items-center justify-center">
                 <div className="text-center p-8">

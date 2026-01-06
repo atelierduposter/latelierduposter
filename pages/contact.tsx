@@ -47,7 +47,7 @@ export default function ContactPage() {
         <section className="py-16 bg-secondary">
           <div className="container-custom max-w-3xl">
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold text-primary-700 mb-4">
                 Contactez-nous
               </h1>
               <p className="text-lg text-gray-600">
@@ -57,10 +57,10 @@ export default function ContactPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div className="card">
-                <h2 className="text-2xl font-semibold text-primary mb-4">Informations de contact</h2>
+                <h2 className="text-2xl font-semibold text-primary-700 mb-4">Informations de contact</h2>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-primary mb-2">Email</h3>
+                    <h3 className="font-semibold text-primary-700 mb-2">Email</h3>
                     <a
                       href="mailto:contact@lafabriqueaposter.fr"
                       className="text-accent hover:underline"
@@ -72,7 +72,7 @@ export default function ContactPage() {
               </div>
 
               <div className="card">
-                <h2 className="text-2xl font-semibold text-primary mb-4">Horaires</h2>
+                <h2 className="text-2xl font-semibold text-primary-700 mb-4">Horaires</h2>
                 <div className="space-y-2 text-gray-600">
                   <p>Lundi - Vendredi : 9h - 18h</p>
                   <p>Samedi : 10h - 16h</p>
@@ -82,7 +82,7 @@ export default function ContactPage() {
             </div>
 
             <div className="card">
-              <h2 className="text-2xl font-semibold text-primary mb-6">Envoyez-nous un message</h2>
+              <h2 className="text-2xl font-semibold text-primary-700 mb-6">Envoyez-nous un message</h2>
               
               {submitted ? (
                 <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
@@ -91,7 +91,7 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-primary-700 mb-2">
                       Nom
                     </label>
                     <input
@@ -107,7 +107,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-primary-700 mb-2">
                       Email
                     </label>
                     <input
@@ -123,7 +123,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-primary mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-primary-700 mb-2">
                       Message
                     </label>
                     <textarea
