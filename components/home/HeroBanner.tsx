@@ -35,7 +35,7 @@ export default function HeroBanner() {
           <div className="relative">
             <div className="rounded-lg shadow-xl overflow-hidden">
               <Image
-                src="/images/process.png"
+                src="/images/Process_Poster.png"
                 alt="Processus de création de poster"
                 width={600}
                 height={600}
