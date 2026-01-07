@@ -31,11 +31,11 @@ export default function HomePage() {
         {/* How It Works Section */}
         <HowItWorks />
 
-        {/* Testimonials Section */}
-        <Testimonials />
-
         {/* Product Grid Section */}
         <ProductGrid />
+
+        {/* Testimonials Section */}
+        <Testimonials />
       </Layout>
     </>
   )
