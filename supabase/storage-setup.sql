@@ -7,11 +7,11 @@ VALUES (
   'uploaded-images',
   'uploaded-images',
   false,
-  2097152, -- 2MB limit
+  10485760, -- 10MB limit
   ARRAY['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/webp']
 )
 ON CONFLICT (id) DO UPDATE SET
-  file_size_limit = 2097152; -- Update existing bucket to 2MB limit
+  file_size_limit = 10485760; -- Update existing bucket to 10MB limit
 
 -- 2. Create final-images bucket (private - final transformed images)
 INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)

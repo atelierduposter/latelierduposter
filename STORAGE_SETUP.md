@@ -16,7 +16,7 @@ Si vous rencontrez l'erreur "bucket not found" lors de l'upload d'images, c'est 
 #### Bucket 1 : `uploaded-images`
 - **Name** : `uploaded-images`
 - **Public bucket** : ❌ Non (privé)
-- **File size limit** : 2 MB
+- **File size limit** : 10 MB
 - **Allowed MIME types** : `image/png, image/jpeg, image/jpg, image/gif, image/webp`
 
 #### Bucket 2 : `final-images`
