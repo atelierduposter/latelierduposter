@@ -11,6 +11,7 @@ import Layout from '@/components/layout/Layout'
 import HeroBanner from '@/components/home/HeroBanner'
 import ProductGrid from '@/components/home/ProductGrid'
 import HowItWorks from '@/components/home/HowItWorks'
+import Testimonials from '@/components/home/Testimonials'
 
 export default function HomePage() {
   return (
@@ -29,6 +30,9 @@ export default function HomePage() {
 
         {/* How It Works Section */}
         <HowItWorks />
+
+        {/* Testimonials Section */}
+        <Testimonials />
 
         {/* Product Grid Section */}
         <ProductGrid />

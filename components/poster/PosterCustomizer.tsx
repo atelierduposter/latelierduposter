@@ -185,44 +185,8 @@ export default function PosterCustomizer({ onCustomizationComplete }: PosterCust
               ))}
             </select>
           </div>
-
-          {/* Text Preview */}
-          {textContent && (
-            <div className="p-4 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
-              <p className="text-sm text-gray-600 mb-2">Aperçu du texte :</p>
-              <p
-                className="text-2xl"
-                style={{ fontFamily }}
-              >
-                {textContent}
-              </p>
-            </div>
-          )}
         </div>
       </div>
-
-      {/* Selected Image Preview */}
-      {selectedImageUrl && (
-        <div className="card">
-          <h3 className="text-lg font-semibold mb-4">Aperçu</h3>
-          <div className="relative rounded-lg overflow-hidden border-2 border-gray-200">
-            <img
-              src={selectedImageUrl}
-              alt="Preview"
-              className="w-full h-auto"
-              style={{ maxHeight: '500px', objectFit: 'contain' }}
-            />
-            {textContent && (
-              <div
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white/90 px-6 py-3 rounded-lg shadow-lg"
-                style={{ fontFamily }}
-              >
-                {textContent}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   )
 }
