@@ -76,10 +76,6 @@ export default function AccountPage() {
                     <dd className="mt-1 text-gray-900">{user.email}</dd>
                   </div>
                   <div>
-                    <dt className="text-sm font-medium text-gray-500">ID utilisateur</dt>
-                    <dd className="mt-1 text-gray-900 font-mono text-sm">{user.id}</dd>
-                  </div>
-                  <div>
                     <dt className="text-sm font-medium text-gray-500">Membre depuis</dt>
                     <dd className="mt-1 text-gray-900">
                       {new Date(user.created_at).toLocaleDateString('fr-FR', {

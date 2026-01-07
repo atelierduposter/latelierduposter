@@ -38,10 +38,10 @@ export default function ImageUpload({ onUploadComplete, userId }: ImageUploadPro
         return
       }
 
-      // Validate file size (max 10MB)
-      const maxSize = 10 * 1024 * 1024 // 10MB
+      // Validate file size (max 2MB)
+      const maxSize = 2 * 1024 * 1024 // 2MB
       if (file.size > maxSize) {
-        setError('L\'image est trop volumineuse. Taille maximale : 10MB')
+        setError('L\'image est trop volumineuse. Taille maximale : 2MB')
         setUploading(false)
         return
       }
@@ -153,7 +153,7 @@ export default function ImageUpload({ onUploadComplete, userId }: ImageUploadPro
                     Cliquez pour sélectionner une image ou glissez-déposez
                   </p>
                   <p className="text-sm text-gray-500 mt-1">
-                    PNG, JPG, JPEG jusqu'à 10MB
+                    PNG, JPG, JPEG jusqu'à 2MB
                   </p>
                 </>
               )}
