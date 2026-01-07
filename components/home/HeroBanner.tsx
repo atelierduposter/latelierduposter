@@ -31,16 +31,15 @@ export default function HeroBanner() {
             </Link>
           </div>
 
-          {/* Process Image */}
+          {/* Process Video */}
           <div className="relative">
             <div className="rounded-lg shadow-xl overflow-hidden">
-              <Image
-                src="/images/Process_Poster.png"
-                alt="Processus de création de poster"
-                width={600}
-                height={600}
+              <video
+                src="/images/BA.mp4"
+                autoPlay
+                muted
+                playsInline
                 className="w-full h-auto object-contain"
-                priority
               />
             </div>
           </div>

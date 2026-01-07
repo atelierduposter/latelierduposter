@@ -27,11 +27,11 @@ export default function HomePage() {
         {/* Hero Banner Section */}
         <HeroBanner />
 
-        {/* Product Grid Section */}
-        <ProductGrid />
-
         {/* How It Works Section */}
         <HowItWorks />
+
+        {/* Product Grid Section */}
+        <ProductGrid />
       </Layout>
     </>
   )
