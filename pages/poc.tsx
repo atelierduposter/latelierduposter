@@ -8,10 +8,10 @@
 import Head from 'next/head'
 import Layout from '@/components/layout/Layout'
 import HeroBanner from '@/components/home/HeroBanner'
-import TestimonialsHero from '@/components/home/TestimonialsHero'
 import HowItWorks from '@/components/home/HowItWorks'
 import PricingSection from '@/components/home/PricingSection'
 import ProductGrid from '@/components/home/ProductGrid'
+import Testimonials from '@/components/home/Testimonials'
 import GuaranteesSection from '@/components/home/GuaranteesSection'
 
 export default function POCPage() {
@@ -71,9 +71,6 @@ export default function POCPage() {
         {/* Hero Banner Section */}
         <HeroBanner />
 
-        {/* Testimonials Hero (Quick social proof) */}
-        <TestimonialsHero />
-
         {/* How It Works Section */}
         <HowItWorks />
 
@@ -82,6 +79,9 @@ export default function POCPage() {
 
         {/* Product Grid Section */}
         <ProductGrid />
+
+        {/* Testimonials Section */}
+        <Testimonials />
 
         {/* Guarantees Section */}
         <GuaranteesSection />
