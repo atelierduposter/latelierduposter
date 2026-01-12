@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { createSupabaseClient } from '@/lib/supabase/client'
+import { useCart } from '@/contexts/CartContext'
 
 export default function Header() {
   const [user, setUser] = useState<any>(null)
@@ -18,6 +19,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const router = useRouter()
   const supabase = createSupabaseClient()
+  const { getItemCount } = useCart()
 
   useEffect(() => {
     // Get current user
@@ -65,6 +67,14 @@ export default function Header() {
             </Link>
             <Link href="/contact" className="text-gray-700 hover:text-primary-600 transition-colors">
               Contact
+            </Link>
+            <Link href="/cart" className="text-gray-700 hover:text-primary-600 transition-colors relative">
+              Panier
+              {getItemCount() > 0 && (
+                <span className="absolute -top-2 -right-2 bg-accent text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {getItemCount()}
+                </span>
+              )}
             </Link>
             
             {loading ? (
@@ -142,6 +152,18 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
+              </Link>
+              <Link 
+                href="/cart" 
+                className="text-gray-700 hover:text-primary-600 transition-colors relative"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Panier
+                {getItemCount() > 0 && (
+                  <span className="ml-2 bg-accent text-white text-xs font-bold rounded-full px-2 py-0.5">
+                    {getItemCount()}
+                  </span>
+                )}
               </Link>
               
               {!loading && user && (

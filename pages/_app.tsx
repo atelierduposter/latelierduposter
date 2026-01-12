@@ -6,6 +6,7 @@
 
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
+import { CartProvider } from '@/contexts/CartContext'
 import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -79,5 +80,9 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <CartProvider>
+      <Component {...pageProps} />
+    </CartProvider>
+  )
 }

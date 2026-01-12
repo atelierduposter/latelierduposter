@@ -14,6 +14,7 @@ import Layout from '@/components/layout/Layout'
 import PosterCustomizer, { PosterCustomization } from '@/components/poster/PosterCustomizer'
 import PaymentForm from '@/components/payment/PaymentForm'
 import { createSupabaseClient } from '@/lib/supabase/client'
+import { useCart } from '@/contexts/CartContext'
 
 const POSTER_PRICE = 29.99 // Base price for a poster
 
@@ -25,6 +26,7 @@ export default function CustomizePage() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null)
   const router = useRouter()
   const supabase = createSupabaseClient()
+  const { addItem } = useCart()
 
   useEffect(() => {
     // Check if user is logged in
@@ -44,18 +46,15 @@ export default function CustomizePage() {
     setCustomization(customization)
   }
 
-  const handleContinueToPayment = () => {
+  const handleAddToCart = () => {
     if (!customization) {
       alert('Veuillez d\'abord sélectionner une image')
       return
     }
 
-    if (!user) {
-      router.push('/auth/login?redirect=/customize')
-      return
-    }
-
-    setStep('payment')
+    addItem(customization, POSTER_PRICE)
+    alert('Poster ajouté au panier !')
+    router.push('/cart')
   }
 
   const handleCreateOrder = async () => {
@@ -192,8 +191,8 @@ export default function CustomizePage() {
                         Prix total : <span className="font-bold">{POSTER_PRICE.toFixed(2)} €</span>
                       </p>
                     </div>
-                    <button onClick={handleContinueToPayment} className="btn btn-primary">
-                      Continuer vers le paiement
+                    <button onClick={handleAddToCart} className="btn btn-primary">
+                      Ajouter au panier
                     </button>
                   </div>
                 </div>
