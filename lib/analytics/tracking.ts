@@ -53,12 +53,13 @@ export async function trackVisit(): Promise<void> {
     // Try to store in Supabase (optional, for server-side analytics)
     try {
       const supabase = createSupabaseClient()
-      await supabase.from('visits').insert({
+      const { error } = await supabase.from('visits').insert({
         visit_date: today,
         timestamp: now,
-      }).catch(() => {
-        // Ignore errors if table doesn't exist
       })
+      if (error) {
+        // Ignore errors if table doesn't exist
+      }
     } catch (error) {
       // Ignore errors
     }
