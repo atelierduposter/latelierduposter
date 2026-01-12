@@ -204,7 +204,8 @@ export default function AdminAnalytics() {
                 <YAxis yAxisId="left" label={{ value: 'Nombre de ventes', angle: -90, position: 'insideLeft' }} />
                 <YAxis yAxisId="right" orientation="right" label={{ value: 'Chiffre d\'affaires (€)', angle: 90, position: 'insideRight' }} />
                 <Tooltip
-                  formatter={(value: number, name: string) => {
+                  formatter={(value: number | undefined, name: string | undefined) => {
+                    if (value === undefined || name === undefined) return ['', '']
                     if (name === 'revenue') {
                       return [`${value.toFixed(2)} €`, 'Chiffre d\'affaires']
                     }

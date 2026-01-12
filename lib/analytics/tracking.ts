@@ -15,6 +15,53 @@ export interface Visit {
   isUnique: boolean
 }
 
+interface LastVisit {
+  date: string
+  timestamp: number
+}
+
+function parseLastVisit(data: string | null): LastVisit | null {
+  if (!data) return null
+  try {
+    const parsed = JSON.parse(data) as unknown
+    if (
+      typeof parsed === 'object' &&
+      parsed !== null &&
+      'date' in parsed &&
+      'timestamp' in parsed &&
+      typeof (parsed as { date: unknown }).date === 'string' &&
+      typeof (parsed as { timestamp: unknown }).timestamp === 'number'
+    ) {
+      return parsed as LastVisit
+    }
+    return null
+  } catch {
+    return null
+  }
+}
+
+function parseVisits(data: string | null): Visit[] {
+  if (!data) return []
+  try {
+    const parsed = JSON.parse(data) as unknown
+    if (!Array.isArray(parsed)) return []
+    return parsed.filter((visit): visit is Visit => {
+      return (
+        typeof visit === 'object' &&
+        visit !== null &&
+        'date' in visit &&
+        'timestamp' in visit &&
+        'isUnique' in visit &&
+        typeof visit.date === 'string' &&
+        typeof visit.timestamp === 'number' &&
+        typeof visit.isUnique === 'boolean'
+      )
+    })
+  } catch {
+    return []
+  }
+}
+
 export async function trackVisit(): Promise<void> {
   if (typeof window === 'undefined') return
 
@@ -23,7 +70,8 @@ export async function trackVisit(): Promise<void> {
 
   // Check if we've already tracked a visit today
   const lastVisit = localStorage.getItem(VISIT_STORAGE_KEY)
-  const lastVisitDate = lastVisit ? JSON.parse(lastVisit).date : null
+  const lastVisitData = parseLastVisit(lastVisit)
+  const lastVisitDate = lastVisitData?.date ?? null
 
   const isUnique = lastVisitDate !== today
 
@@ -36,7 +84,7 @@ export async function trackVisit(): Promise<void> {
 
     // Add to visits array
     const visitsStr = localStorage.getItem(VISITS_STORAGE_KEY)
-    const visits: Visit[] = visitsStr ? JSON.parse(visitsStr) : []
+    const visits = parseVisits(visitsStr)
     
     visits.push({
       date: today,
@@ -70,7 +118,7 @@ export function getVisits(): Visit[] {
   if (typeof window === 'undefined') return []
   
   const visitsStr = localStorage.getItem(VISITS_STORAGE_KEY)
-  return visitsStr ? JSON.parse(visitsStr) : []
+  return parseVisits(visitsStr)
 }
 
 export function getUniqueVisitsByDay(): Record<string, number> {

@@ -83,7 +83,6 @@ export default function AdminDashboard() {
       const { data: uniqueUsers } = await supabase
         .from('orders')
         .select('user_id')
-        .catch(() => ({ data: [] }))
       
       const userCount = uniqueUsers ? new Set(uniqueUsers.map((o: any) => o.user_id)).size : 0
 
