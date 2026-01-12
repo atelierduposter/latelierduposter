@@ -12,7 +12,7 @@ export default function OrdersPage() {
   return (
     <>
       <Head>
-        <title>Mes commandes - La fabrique à poster</title>
+        <title>Mes commandes - Mon Petit Poster</title>
         <meta name="description" content="Consultez toutes vos commandes" />
       </Head>
 

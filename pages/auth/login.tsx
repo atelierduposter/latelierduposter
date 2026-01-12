@@ -12,7 +12,7 @@ export default function LoginPage() {
   return (
     <>
       <Head>
-        <title>Connexion - La fabrique à poster</title>
+        <title>Connexion - Mon Petit Poster</title>
         <meta name="description" content="Connectez-vous à votre compte" />
       </Head>
       

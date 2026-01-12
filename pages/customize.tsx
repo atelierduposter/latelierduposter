@@ -115,7 +115,7 @@ export default function CustomizePage() {
   return (
     <>
       <Head>
-        <title>Personnaliser votre poster - La fabrique à poster</title>
+        <title>Personnaliser votre poster - Mon Petit Poster</title>
         <meta name="description" content="Créez et personnalisez votre poster" />
       </Head>
 

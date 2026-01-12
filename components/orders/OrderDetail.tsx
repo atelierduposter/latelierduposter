@@ -122,24 +122,32 @@ export default function OrderDetail({ orderId }: { orderId: string }) {
         <div className="space-y-6">
           <div className="card">
             <h2 className="text-xl font-semibold mb-4">Image originale</h2>
-            <div className="bg-gray-100 rounded-lg overflow-hidden">
+            <div className="bg-gray-100 rounded-lg overflow-hidden relative protected-image">
               <img
                 src={order.image_url}
                 alt="Original image"
-                className="w-full h-auto"
+                className="w-full h-auto protected-image"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
               />
+              <div className="absolute inset-0 pointer-events-none watermark-overlay" />
             </div>
           </div>
 
           {order.final_image_url && (
             <div className="card">
               <h2 className="text-xl font-semibold mb-4">Image finale</h2>
-              <div className="bg-gray-100 rounded-lg overflow-hidden">
+              <div className="bg-gray-100 rounded-lg overflow-hidden relative protected-image">
                 <img
                   src={order.final_image_url}
                   alt="Final image"
-                  className="w-full h-auto"
+                  className="w-full h-auto protected-image"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                 />
+                <div className="absolute inset-0 pointer-events-none watermark-overlay" />
               </div>
               <p className="text-sm text-gray-600 mt-4">
                 Cette image vous a été envoyée par email pour validation.

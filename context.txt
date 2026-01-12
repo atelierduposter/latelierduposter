@@ -2,7 +2,7 @@ Use the following context to generate the full frontend and backend code for a w
 
 CONTEXT:
 
-PROJECT: La fabrique à poster
+PROJECT: Mon Petit Poster
 
 OBJECTIVE:
 - Create an e-commerce site to sell landscape posters in sketch style.

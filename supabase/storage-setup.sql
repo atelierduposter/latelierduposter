@@ -1,4 +1,4 @@
--- Storage Buckets Setup for La fabrique à poster
+-- Storage Buckets Setup for Mon Petit Poster
 -- Run this SQL in your Supabase SQL editor to create the necessary storage buckets
 
 -- 1. Create uploaded-images bucket (private - users upload their photos here)

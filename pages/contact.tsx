@@ -36,7 +36,7 @@ export default function ContactPage() {
   return (
     <>
       <Head>
-        <title>Contact - La fabrique à poster</title>
+        <title>Contact - Mon Petit Poster</title>
         <meta
           name="description"
           content="Contactez-nous pour toute question sur nos posters personnalisés."

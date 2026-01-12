@@ -33,13 +33,14 @@ export default function HeroBanner() {
 
           {/* Process Video */}
           <div className="relative">
-            <div className="rounded-lg shadow-xl overflow-hidden">
+            <div className="rounded-lg shadow-xl overflow-hidden protected-image">
               <video
                 src="/images/BA.mp4"
                 autoPlay
                 muted
                 playsInline
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain protected-image"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
           </div>

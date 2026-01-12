@@ -12,7 +12,7 @@ export default function GalleryPage() {
   return (
     <>
       <Head>
-        <title>Galerie - La fabrique à poster</title>
+        <title>Galerie - Mon Petit Poster</title>
         <meta
           name="description"
           content="Découvrez notre galerie de posters en style croquis. Choisissez parmi nos designs ou personnalisez le vôtre."

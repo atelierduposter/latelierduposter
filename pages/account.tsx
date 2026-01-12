@@ -57,7 +57,7 @@ export default function AccountPage() {
   return (
     <>
       <Head>
-        <title>Mon compte - La fabrique à poster</title>
+        <title>Mon compte - Mon Petit Poster</title>
         <meta name="description" content="Gérez votre compte" />
       </Head>
 

@@ -1,4 +1,4 @@
-# La fabrique à poster
+# Mon Petit Poster
 
 Site e-commerce pour la vente de posters paysage en style croquis. Les utilisateurs peuvent uploader leurs photos ou choisir dans une galerie, et l'image finale est transformée manuellement par l'équipe admin puis envoyée par email.
 

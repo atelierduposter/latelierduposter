@@ -39,7 +39,7 @@ export default function Header() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
-    router.push('/')
+    router.push('/poc')
     setMobileMenuOpen(false)
   }
 
@@ -48,13 +48,13 @@ export default function Header() {
       <nav className="container-custom py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-primary-700">
-            La fabrique à poster
+          <Link href="/poc" className="text-2xl font-bold text-primary-700">
+            Mon Petit Poster
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <Link href="/poc" className="text-gray-700 hover:text-primary-600 transition-colors">
               Accueil
             </Link>
             <Link href="/gallery" className="text-gray-700 hover:text-primary-600 transition-colors">
@@ -116,7 +116,7 @@ export default function Header() {
           <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
             <div className="flex flex-col space-y-4 pt-4">
               <Link 
-                href="/" 
+                href="/poc" 
                 className="text-gray-700 hover:text-primary-600 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

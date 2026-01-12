@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">La fabrique à poster</h3>
+            <h3 className="text-xl font-bold mb-4">Mon Petit Poster</h3>
             <p className="text-gray-300 text-sm">
               Créez vos posters personnalisés en style croquis à partir de vos photos.
             </p>
@@ -25,7 +25,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Liens rapides</h4>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">
+                <Link href="/poc" className="hover:text-white transition-colors">
                   Accueil
                 </Link>
               </li>
@@ -97,7 +97,7 @@ export default function Footer() {
         {/* Legal Info */}
         <div className="border-t border-gray-700 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300">
-            <p>&copy; {new Date().getFullYear()} La fabrique à poster. Tous droits réservés.</p>
+            <p>&copy; {new Date().getFullYear()} Mon Petit Poster. Tous droits réservés.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="/legal/terms" className="hover:text-white transition-colors">
                 Conditions générales

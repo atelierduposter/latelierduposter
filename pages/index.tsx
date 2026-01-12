@@ -1,42 +1,65 @@
 /**
- * Home Page
+ * Home Page - Under Construction
  * 
- * Landing page for La fabrique à poster.
- * Follows the structure from context.txt guidelines.
- * Includes: Hero Banner, Product Grid, How It Works section.
+ * Displays a "coming soon" message.
+ * The actual site is accessible at /poc
  */
 
 import Head from 'next/head'
-import Layout from '@/components/layout/Layout'
-import HeroBanner from '@/components/home/HeroBanner'
-import ProductGrid from '@/components/home/ProductGrid'
-import HowItWorks from '@/components/home/HowItWorks'
-import Testimonials from '@/components/home/Testimonials'
 
 export default function HomePage() {
   return (
     <>
       <Head>
-        <title>La fabrique à poster - Créez votre poster unique en quelques clics</title>
+        <title>Mon Petit Poster - Site en construction</title>
         <meta
           name="description"
-          content="Transformez vos photos en magnifiques posters en style croquis. Personnalisez avec du texte et choisissez parmi nos designs."
+          content="Mon Petit Poster - Site en construction"
         />
       </Head>
 
-      <Layout>
-        {/* Hero Banner Section */}
-        <HeroBanner />
-
-        {/* How It Works Section */}
-        <HowItWorks />
-
-        {/* Product Grid Section */}
-        <ProductGrid />
-
-        {/* Testimonials Section */}
-        <Testimonials />
-      </Layout>
+      <div className="min-h-screen bg-gradient-to-br from-primary-50 via-secondary to-primary-100 flex items-center justify-center px-4">
+        <div className="max-w-2xl w-full text-center">
+          <div className="mb-8">
+            <h1 className="text-5xl md:text-6xl font-bold text-primary-700 mb-4">
+              Mon Petit Poster
+            </h1>
+            <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-8">
+            <div className="mb-6">
+              <svg 
+                className="w-24 h-24 mx-auto text-primary-600 mb-6" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={1.5} 
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" 
+                />
+              </svg>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-700 mb-4">
+              Site en construction
+            </h2>
+            
+            <p className="text-lg text-gray-600 mb-8">
+              Nous travaillons actuellement sur notre nouveau site web.
+              <br />
+              Revenez bientôt pour découvrir nos magnifiques posters personnalisés !
+            </p>
+          </div>
+          
+          <div className="text-gray-500 text-sm">
+            <p>&copy; {new Date().getFullYear()} Mon Petit Poster. Tous droits réservés.</p>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
