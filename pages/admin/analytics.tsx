@@ -94,6 +94,8 @@ export default function AdminAnalytics() {
       const visitsChartData = months.map((month) => ({
         month: new Date(month + '-01').toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' }),
         visits: visitsByMonth[month] || 0,
+        sales: 0,
+        revenue: 0,
       }))
 
       const salesChartData = months.map((month) => ({
