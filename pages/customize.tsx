@@ -84,7 +84,7 @@ export default function CustomizePage() {
           text_content: customization.textContent,
           font_family: customization.fontFamily,
           status: 'pending_transformation',
-          total_amount: POSTER_PRICE,
+          total_amount: customization.price,
         })
         .select()
         .single()
@@ -263,13 +263,13 @@ export default function CustomizePage() {
                       )}
                     </div>
                     <div className="text-lg font-semibold">
-                      {POSTER_PRICE.toFixed(2)} €
+                      {customization.price.toFixed(2)} €
                     </div>
                   </div>
                   <div className="border-t pt-4 flex justify-between items-center">
                     <span className="text-lg font-semibold">Total</span>
                     <span className="text-2xl font-bold text-primary-600">
-                      {POSTER_PRICE.toFixed(2)} €
+                      {customization.price.toFixed(2)} €
                     </span>
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export default function CustomizePage() {
                 </div>
               ) : (
                 <PaymentForm
-                  amount={POSTER_PRICE}
+                  amount={customization.price}
                   orderId={orderId}
                   onPaymentSuccess={handlePaymentSuccess}
                   onPaymentError={handlePaymentError}
