@@ -25,7 +25,7 @@ export default function CustomizePage() {
   const [user, setUser] = useState<any>(null)
   const [selectedCity, setSelectedCity] = useState<string | null>(null)
   const [selectedProductImage, setSelectedProductImage] = useState<string | undefined>(undefined)
-  const [selectedProductFormat, setSelectedProductFormat] = useState<'A4' | 'A3' | 'A2' | undefined>(undefined)
+  const [selectedProductFormat, setSelectedProductFormat] = useState<'A4' | 'A3' | 'A5' | undefined>(undefined)
   const router = useRouter()
   const supabase = createSupabaseClient()
   const { addItem } = useCart()

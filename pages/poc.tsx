@@ -21,9 +21,9 @@ export default function POCPage() {
         <title>Mon Petit Poster - Créez votre poster unique dès 29€ | Livraison rapide</title>
         <meta
           name="description"
-          content="Transformez vos photos en magnifiques posters en style flat design. À partir de 29€, formats A4/A3/A2, livraison 5-7 jours, satisfait ou remboursé. Plus de 1000 posters créés."
+          content="Transformez vos photos en magnifiques posters en style flat design. Formats A5/A4/A3, livraison 5-7 jours, Made in France. Plus de 1000 posters créés."
         />
-        <meta name="keywords" content="poster personnalisé, flat design, photo en poster, cadeau personnalisé, A4, A3, A2" />
+        <meta name="keywords" content="poster personnalisé, flat design, photo en poster, cadeau personnalisé, A5, A4, A3" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Mon Petit Poster - Créez votre poster unique dès 29€" />
@@ -44,7 +44,7 @@ export default function POCPage() {
               "@context": "https://schema.org",
               "@type": "Product",
               "name": "Poster personnalisé en style flat design",
-              "description": "Transformez vos photos en magnifiques posters en style flat design. Formats A4, A3, A2 disponibles.",
+              "description": "Transformez vos photos en magnifiques posters en style flat design. Formats A5, A4, A3 disponibles.",
               "brand": {
                 "@type": "Brand",
                 "name": "Mon Petit Poster"

@@ -4,7 +4,7 @@
  * Calculates poster prices based on format, text, and frame options.
  */
 
-export type PosterFormat = 'A4' | 'A3' | 'A2'
+export type PosterFormat = 'A4' | 'A3' | 'A5'
 export type TextOption = 'with' | 'without'
 export type FrameOption = 'with' | 'without'
 
@@ -16,9 +16,9 @@ export interface PricingOptions {
 
 // Base prices (without frame, without text)
 const BASE_PRICES: Record<PosterFormat, number> = {
+  A5: 19, // Format compact
   A4: 29, // Prix de base
   A3: 33, // 35 - 2 (Best seller, avec texte = 35€)
-  A2: 37, // 39 - 2 (avec texte = 39€)
 }
 
 // Price adjustments
@@ -58,7 +58,7 @@ export function getBasePrice(format: PosterFormat): number {
  * Get all available formats
  */
 export function getAvailableFormats(): PosterFormat[] {
-  return ['A4', 'A3', 'A2']
+  return ['A5', 'A4', 'A3']
 }
 
 /**

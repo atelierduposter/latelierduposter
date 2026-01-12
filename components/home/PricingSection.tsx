@@ -4,15 +4,15 @@
  * Displays pricing information with format comparison table.
  */
 
-import { formatPrice, getBasePrice, getAvailableFormats } from '@/lib/pricing'
+import { formatPrice, getBasePrice, getAvailableFormats, type PosterFormat } from '@/lib/pricing'
 
 export default function PricingSection() {
   const formats = getAvailableFormats()
   
-  const formatDetails = {
+  const formatDetails: Record<PosterFormat, { dimensions: string; description: string }> = {
+    A5: { dimensions: '14.8 × 21 cm', description: 'Format compact' },
     A4: { dimensions: '21 × 29.7 cm', description: 'Format standard' },
     A3: { dimensions: '29.7 × 42 cm', description: 'Best seller' },
-    A2: { dimensions: '42 × 59.4 cm', description: 'Format grand' },
   }
 
   return (

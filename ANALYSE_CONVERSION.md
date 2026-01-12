@@ -7,7 +7,7 @@
 
 ### 1. **Prix non visible et incohérent**
 **Problème :**
-- Prix fixe de 29.99€ affiché dans ProductGrid alors que la grille tarifaire dynamique existe (A4: 29€, A3: 35€, A2: 39€)
+- Prix fixe de 29.99€ affiché dans ProductGrid alors que la grille tarifaire dynamique existe (A5: 19€, A4: 29€, A3: 35€)
 - Aucun prix visible dans le Hero Banner
 - Prix non mentionné dans "Comment ça marche ?"
 - Client découvre le prix seulement après avoir uploadé une photo
@@ -92,7 +92,7 @@
 
 ### 6. **Informations manquantes sur le produit**
 **Problème :**
-- Pas de dimensions exactes (A4, A3, A2 non expliquées)
+- Pas de dimensions exactes (A5, A4, A3 non expliquées)
 - Pas d'information sur les options (cadre, sans texte)
 - Pas de preview du rendu final avant commande
 - Pas d'exemple de personnalisation avec texte
@@ -100,7 +100,7 @@
 **Impact :** 35% d'abandon par manque d'information
 
 **Correctif :**
-- Ajouter un tableau comparatif des formats (A4: 21x29.7cm, A3: 29.7x42cm, A2: 42x59.4cm)
+- Ajouter un tableau comparatif des formats (A5: 14.8x21cm, A4: 21x29.7cm, A3: 29.7x42cm)
 - Créer une section "Options disponibles" avec visuels
 - Ajouter un slider "Avant/Après" dans le Hero
 - Montrer un exemple de poster avec texte personnalisé

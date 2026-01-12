@@ -149,7 +149,7 @@ export default function PosterCustomizer({ onCustomizationComplete, initialImage
         <h3 className="text-lg font-semibold mb-4">2. Choisir le format</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {(['A4', 'A3', 'A2'] as PosterFormat[]).map((fmt) => (
+          {(['A5', 'A4', 'A3'] as PosterFormat[]).map((fmt) => (
             <button
               key={fmt}
               type="button"

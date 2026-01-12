@@ -7,7 +7,7 @@
 export interface Product {
   id: string
   title: string
-  format: 'A4' | 'A3' | 'A2'
+  format: 'A4' | 'A3' | 'A5'
   imageUrl: string
   hoverImageUrl?: string
 }
