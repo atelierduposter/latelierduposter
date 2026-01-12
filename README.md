@@ -1,6 +1,6 @@
 # Mon Petit Poster
 
-Site e-commerce pour la vente de posters paysage en style croquis. Les utilisateurs peuvent uploader leurs photos ou choisir dans une galerie, et l'image finale est transformée manuellement par l'équipe admin puis envoyée par email.
+Site e-commerce pour la vente de posters paysage en style flat design. Les utilisateurs peuvent uploader leurs photos ou choisir dans une galerie, et l'image finale est transformée manuellement par l'équipe admin puis envoyée par email.
 
 ## Technologies
 
@@ -64,6 +64,13 @@ SENDGRID_API_KEY=votre_clé_sendgrid
 # OU
 MAILGUN_API_KEY=votre_clé_mailgun
 MAILGUN_DOMAIN=votre_domaine_mailgun
+
+# reCAPTCHA v3 (optionnel mais recommandé pour la protection anti-bot)
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=votre_clé_publique_recaptcha
+RECAPTCHA_SECRET_KEY=votre_clé_secrète_recaptcha
+
+# Supabase Service Role (pour les routes API admin)
+SUPABASE_SERVICE_ROLE_KEY=votre_service_role_key
 ```
 
 4. **Configurer Supabase**

@@ -7,14 +7,22 @@
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { CartProvider } from '@/contexts/CartContext'
+import ReCaptchaProvider from '@/components/auth/ReCaptchaProvider'
+import { trackVisit } from '@/lib/analytics/tracking'
 import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
+    // Track visit for analytics
+    trackVisit()
+  }, [])
+
+  useEffect(() => {
     // Prevent right-click on images
     const handleContextMenu = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      if (target.tagName === 'IMG' || target.closest('.protected-image')) {
+      const target = e.target as HTMLElement | null
+      if (!target) return
+      if (target.tagName === 'IMG' || (target instanceof Element && target.closest('.protected-image'))) {
         e.preventDefault()
         return false
       }
@@ -22,8 +30,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
     // Prevent drag and drop of images
     const handleDragStart = (e: DragEvent) => {
-      const target = e.target as HTMLElement
-      if (target.tagName === 'IMG' || target.closest('.protected-image')) {
+      const target = e.target as HTMLElement | null
+      if (!target) return
+      if (target.tagName === 'IMG' || (target instanceof Element && target.closest('.protected-image'))) {
         e.preventDefault()
         return false
       }
@@ -31,8 +40,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
     // Prevent image selection
     const handleSelectStart = (e: Event) => {
-      const target = e.target as HTMLElement
-      if (target.tagName === 'IMG' || target.closest('.protected-image')) {
+      const target = e.target as HTMLElement | null
+      if (!target) return
+      if (target.tagName === 'IMG' || (target instanceof Element && target.closest('.protected-image'))) {
         e.preventDefault()
         return false
       }
@@ -81,8 +91,10 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <CartProvider>
-      <Component {...pageProps} />
-    </CartProvider>
+    <ReCaptchaProvider>
+      <CartProvider>
+        <Component {...pageProps} />
+      </CartProvider>
+    </ReCaptchaProvider>
   )
 }

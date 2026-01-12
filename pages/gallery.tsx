@@ -15,7 +15,7 @@ export default function GalleryPage() {
         <title>Galerie - Mon Petit Poster</title>
         <meta
           name="description"
-          content="Découvrez notre galerie de posters en style croquis. Choisissez parmi nos designs ou personnalisez le vôtre."
+          content="Découvrez notre galerie de posters en style flat design. Choisissez parmi nos designs ou personnalisez le vôtre."
         />
       </Head>
 
@@ -27,7 +27,7 @@ export default function GalleryPage() {
                 Notre galerie
               </h1>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Découvrez notre collection de posters en style croquis. 
+                Découvrez notre collection de posters en style flat design. 
                 Choisissez parmi nos designs ou créez votre propre poster personnalisé.
               </p>
             </div>

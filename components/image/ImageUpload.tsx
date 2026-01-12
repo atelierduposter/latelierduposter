@@ -8,20 +8,31 @@
 
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { createSupabaseClient } from '@/lib/supabase/client'
 
 interface ImageUploadProps {
-  onUploadComplete: (imageUrl: string) => void
-  userId: string
+  onUploadComplete: (imageUrl: string, previewUrl?: string) => void
+  userId: string // Can be temporary ID for non-authenticated users
+  initialImageUrl?: string // Pre-selected image URL (e.g., from product selection)
 }
 
-export default function ImageUpload({ onUploadComplete, userId }: ImageUploadProps) {
+export default function ImageUpload({ onUploadComplete, userId, initialImageUrl }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [preview, setPreview] = useState<string | null>(null)
+  const [preview, setPreview] = useState<string | null>(initialImageUrl || null)
   const supabase = createSupabaseClient()
+
+  // Handle initial image URL
+  useEffect(() => {
+    if (initialImageUrl && initialImageUrl !== preview) {
+      setPreview(initialImageUrl)
+      // Call onUploadComplete with the initial image
+      onUploadComplete(initialImageUrl, initialImageUrl)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialImageUrl])
 
   const onDrop = useCallback(
     async (acceptedFiles: File[]) => {
@@ -46,35 +57,64 @@ export default function ImageUpload({ onUploadComplete, userId }: ImageUploadPro
         return
       }
 
-      // Create preview
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        setPreview(reader.result as string)
-      }
-      reader.readAsDataURL(file)
+      // Create preview (data URL for local display) - wait for it to be ready
+      const previewDataUrl = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onloadend = () => {
+          const result = reader.result as string
+          setPreview(result)
+          resolve(result)
+        }
+        reader.onerror = reject
+        reader.readAsDataURL(file)
+      })
 
       try {
-        // Generate unique filename
-        const fileExt = file.name.split('.').pop()
-        const fileName = `${userId}-${Date.now()}.${fileExt}`
-        const filePath = `${fileName}`
+        // Check if user is authenticated
+        const { data: { user } } = await supabase.auth.getUser()
+        const isAuthenticated = !!user && !userId.startsWith('temp_')
 
-        // Upload to Supabase Storage
-        const { error: uploadError } = await supabase.storage
-          .from('uploaded-images')
-          .upload(filePath, file, {
-            cacheControl: '3600',
-            upsert: false,
-          })
+        let imageUrl = ''
 
-        if (uploadError) throw uploadError
+        if (isAuthenticated && user) {
+          // User is authenticated - upload to Supabase Storage
+          const fileExt = file.name.split('.').pop()
+          const fileName = `${user.id}-${Date.now()}.${fileExt}`
+          const filePath = `${fileName}`
 
-        // Get public URL
-        const { data } = supabase.storage
-          .from('uploaded-images')
-          .getPublicUrl(filePath)
+          // Upload to Supabase Storage
+          const { error: uploadError } = await supabase.storage
+            .from('uploaded-images')
+            .upload(filePath, file, {
+              cacheControl: '3600',
+              upsert: false,
+            })
 
-        onUploadComplete(data.publicUrl)
+          if (uploadError) throw uploadError
+
+          // Get public URL (or signed URL if bucket is private)
+          try {
+            const { data: publicData } = supabase.storage
+              .from('uploaded-images')
+              .getPublicUrl(filePath)
+            imageUrl = publicData.publicUrl
+          } catch (e) {
+            // If public URL fails, try to get signed URL
+            const { data: signedData, error: signedError } = await supabase.storage
+              .from('uploaded-images')
+              .createSignedUrl(filePath, 3600) // 1 hour expiry
+            
+            if (signedError) throw signedError
+            imageUrl = signedData.signedUrl
+          }
+        } else {
+          // User is not authenticated - use base64 data URL as temporary storage
+          // The image will be uploaded after user signs up/logs in
+          imageUrl = previewDataUrl
+        }
+
+        // Pass both URLs
+        onUploadComplete(imageUrl, previewDataUrl)
       } catch (error: any) {
         console.error('Upload error:', error)
         setError(error.message || 'Erreur lors du téléchargement de l\'image')

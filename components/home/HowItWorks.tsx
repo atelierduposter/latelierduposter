@@ -30,7 +30,7 @@ export default function HowItWorks() {
     {
       number: 3,
       title: 'Commandez et recevez',
-      description: 'Passez commande, notre équipe transforme votre image et vous l\'envoie par email.',
+      description: 'Passez commande, notre équipe transforme votre image et vous la livre à votre adresse sous 5-7 jours.',
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

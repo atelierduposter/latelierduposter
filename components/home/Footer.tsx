@@ -16,7 +16,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Mon Petit Poster</h3>
             <p className="text-gray-300 text-sm">
-              Créez vos posters personnalisés en style croquis à partir de vos photos.
+              Créez vos posters personnalisés en style flat design à partir de vos photos.
             </p>
           </div>
 

@@ -12,11 +12,11 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Layout from '@/components/layout/Layout'
 import PosterCustomizer, { PosterCustomization } from '@/components/poster/PosterCustomizer'
+import ProgressBar from '@/components/poster/ProgressBar'
 import PaymentForm from '@/components/payment/PaymentForm'
 import { createSupabaseClient } from '@/lib/supabase/client'
 import { useCart } from '@/contexts/CartContext'
-
-const POSTER_PRICE = 29.99 // Base price for a poster
+import { getProductById } from '@/lib/products'
 
 export default function CustomizePage() {
   const [customization, setCustomization] = useState<PosterCustomization | null>(null)
@@ -24,6 +24,8 @@ export default function CustomizePage() {
   const [orderId, setOrderId] = useState<string | null>(null)
   const [user, setUser] = useState<any>(null)
   const [selectedCity, setSelectedCity] = useState<string | null>(null)
+  const [selectedProductImage, setSelectedProductImage] = useState<string | undefined>(undefined)
+  const [selectedProductFormat, setSelectedProductFormat] = useState<'A4' | 'A3' | 'A2' | undefined>(undefined)
   const router = useRouter()
   const supabase = createSupabaseClient()
   const { addItem } = useCart()
@@ -40,6 +42,17 @@ export default function CustomizePage() {
     if (router.query.city) {
       setSelectedCity(router.query.city as string)
     }
+
+    // Check for product parameter in URL
+    if (router.query.product) {
+      const productId = router.query.product as string
+      const product = getProductById(productId)
+      if (product) {
+        // Use the flat design image as the initial image
+        setSelectedProductImage(product.imageUrl)
+        setSelectedProductFormat(product.format)
+      }
+    }
   }, [supabase, router.query])
 
   const handleCustomizationComplete = (customization: PosterCustomization) => {
@@ -52,7 +65,8 @@ export default function CustomizePage() {
       return
     }
 
-    addItem(customization, POSTER_PRICE)
+    // Price is already calculated in customization
+    addItem(customization, customization.price)
     alert('Poster ajouté au panier !')
     router.push('/cart')
   }
@@ -178,7 +192,18 @@ export default function CustomizePage() {
                 </p>
               </div>
 
-              <PosterCustomizer onCustomizationComplete={handleCustomizationComplete} />
+              {/* Progress Bar */}
+              <ProgressBar
+                currentStep={1}
+                totalSteps={3}
+                steps={['Personnalisation', 'Panier', 'Paiement']}
+              />
+
+              <PosterCustomizer 
+                onCustomizationComplete={handleCustomizationComplete}
+                initialImageUrl={selectedProductImage}
+                initialFormat={selectedProductFormat}
+              />
 
               {customization && (
                 <div className="card bg-primary-50 border-primary-200">
@@ -188,7 +213,10 @@ export default function CustomizePage() {
                         Prêt à passer commande ?
                       </p>
                       <p className="text-primary-700">
-                        Prix total : <span className="font-bold">{POSTER_PRICE.toFixed(2)} €</span>
+                        Prix total : <span className="font-bold text-2xl">{customization.price.toFixed(2)} €</span>
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Format {customization.format} • {customization.textContent ? 'Avec texte' : 'Sans texte'} • {customization.hasFrame ? 'Avec cadre' : 'Sans cadre'}
                       </p>
                     </div>
                     <button onClick={handleAddToCart} className="btn btn-primary">
