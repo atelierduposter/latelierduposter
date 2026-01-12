@@ -100,6 +100,7 @@ export default function AdminAnalytics() {
 
       const salesChartData = months.map((month) => ({
         month: new Date(month + '-01').toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' }),
+        visits: 0,
         sales: ordersByMonth[month]?.count || 0,
         revenue: Math.round((ordersByMonth[month]?.revenue || 0) * 100) / 100,
       }))
